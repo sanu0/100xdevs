@@ -1,0 +1,53 @@
+<!--/**@Author - Sanu0 
+ * @Email - kumarsanu3703@gmail.com
+*/
+
+//Untill now we have sent request in two ways , either using postman or using browser url bar
+//---------------------------------------------------------------------------------------------
+//  Lets say i ask you to create an HTML page where
+//  1. You can see the names of 10 people
+//  2. You need to make sure you get these data from an API call
+//---------------------------------------------------------------------------------------------
+
+//so we are not creating backend here rather we have to create frontend and using this we have to 
+// hit our backend API where the code is pre written and get the data back.
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Fetch API example</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <script>
+    async function getAnimalData(){
+      /*way-1
+      //----------------------------------------------------------
+      // fetch("https://fakerapi.it/api/v1/persons")
+      //     .then(function(response){
+      //       response.json().then(function(finalData){
+      //         console.log(finalData);
+      //     })
+      //   })
+      //
+      */
+    //------------------------------------------------------------
+    //way-2
+    //-------------------------------------------------------------
+      const response = await fetch("https://fakerapi.it/api/v1/persons")
+      const finalData = await response.json()
+      console.log(finalData)
+      document.getElementById("userData").innerHTML = JSON.stringify(finalData)
+    }
+    //-------------------------------------------------------------
+  </script>
+
+  <button onclick="getAnimalData()">Get Animal Data</button>
+  <div id = "userData"></div>
+</body>
+
+</html>
